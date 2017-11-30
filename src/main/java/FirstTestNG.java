@@ -129,10 +129,6 @@ public class FirstTestNG {
 
 	@AfterTest
 	public void logOut() {
-		// driver.close();
-		// WebElement logOutButton =
-		// driver.findElement(By.xpath("//button[@class='btn btn-labeled
-		// btn-primary btn-sm' ]"));
-		// logOutButton.click();
+		System.out.println("logout");
 	}
 }
