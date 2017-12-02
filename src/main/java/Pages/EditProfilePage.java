@@ -5,12 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.Iterator;
+import java.util.List;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
-import java.util.Iterator;
-import java.util.List;
 
 public class EditProfilePage extends BasePage {
     public EditProfilePage(WebDriver driver){super(driver);}
@@ -65,7 +65,8 @@ public class EditProfilePage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(selectPictureBtn)).click();
     }
     public void clickDeletePictureBtn(){
-        wait.until(ExpectedConditions.elementToBeClickable(deletePictureBtn)).click();
+        executor.executeScript("arguments[0].scrollIntoView(true);",deletePictureBtn);
+        deletePictureBtn.click();
     }
     //i have to learn how to upload a picture and add more methods
     public void uploadImage() throws AWTException {
@@ -151,7 +152,7 @@ public class EditProfilePage extends BasePage {
     }
 
     public WebElement getAssertionUploadPicture() {
-       //avatar when picture is not uploaded
+        //avatar when picture is not uploaded
         return assertionUploadPicture;
     }
     public List<WebElement> getAllPasswordEncryptedFields(){

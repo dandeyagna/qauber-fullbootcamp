@@ -3,35 +3,28 @@ package Tests;
 import Data.DataProviders;
 import Pages.EditCompanyPage;
 import Pages.HeaderPage;
-import Pages.LoginPage;
 import Pages.ProfilePanelPage;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+public class UpdateCompanyInfoTest extends LoginTest {
 
-public class TestUpdateCompanyInfo extends BaseTest {
-    protected HeaderPage headerPage;
-    protected ProfilePanelPage profilePanelPage;
-    protected EditCompanyPage editCompanyPage;
-    protected LoginPage loginPage;
+    private HeaderPage headerPage;
+    private ProfilePanelPage profilePanelPage;
+    private EditCompanyPage editCompanyPage;
 
-    @BeforeClass
-    public void updateCompanyBeforeClass(){
-        headerPage = new HeaderPage(driver);
-        profilePanelPage = new ProfilePanelPage(driver);
-        editCompanyPage = new EditCompanyPage(driver);
-        loginPage = new LoginPage(driver);
-    }
-    @Test(dataProviderClass = DataProviders.class,dataProvider="updateCompanyInfo",priority = 1)
+
+
+    @Test(dataProviderClass = DataProviders.class,dataProvider="updateCompanyInfo",priority = 0, dependsOnMethods = "testLogin")
     public void testUpdateCompanyInfo(String name, String country, String address1, String address2, String city,
-                                      String state,String zip,String phone, String email, String notes, String username, String password) throws InterruptedException {
-        loginPage.setUsername(username);
-        loginPage.setPassword(password);
-        loginPage.clickLoginBtn();
+                                      String state,String zip,String phone, String email, String notes) throws InterruptedException {
+
+        headerPage = new HeaderPage(driver);
         headerPage.clickUserLink();
         Thread.sleep(3000);
+        profilePanelPage = new ProfilePanelPage(driver);
         profilePanelPage.clickEditCompanyBtn();
         Thread.sleep(3000);
+        editCompanyPage = new EditCompanyPage(driver);
         editCompanyPage.setCompanyName(name);
         editCompanyPage.setCountry(country);
         editCompanyPage.setAddress1(address1);
@@ -46,20 +39,20 @@ public class TestUpdateCompanyInfo extends BaseTest {
         Thread.sleep(3000);
 
         Assert.assertTrue(editCompanyPage.getSuccessUpdateMessage().isDisplayed());
-        headerPage.clickUserLink();
-        profilePanelPage.clickSignOut();
         Thread.sleep(4000);
+
     }
 
-    @Test(priority = 2)
+    @Test(priority = 1,dependsOnMethods = "testLogin")
     public void testRequiredFields() throws InterruptedException {
-        loginPage.setUsername("buquxahu@cars2.club");
-        loginPage.setPassword("kisulea");
-        loginPage.clickLoginBtn();
+
+        headerPage = new HeaderPage(driver);
         headerPage.clickUserLink();
         Thread.sleep(3000);
+        profilePanelPage = new ProfilePanelPage(driver);
         profilePanelPage.clickEditCompanyBtn();
         Thread.sleep(3000);
+        editCompanyPage = new EditCompanyPage(driver);
         editCompanyPage.setCompanyName("");
         editCompanyPage.setCountry("Select a country");
         editCompanyPage.setAddress1("");

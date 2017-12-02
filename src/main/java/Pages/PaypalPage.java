@@ -5,7 +5,6 @@ import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
 public class PaypalPage extends BasePage {
     public PaypalPage(WebDriver driver){super(driver);}
     public void paypalSwitchAndPay(){

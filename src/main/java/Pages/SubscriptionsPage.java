@@ -83,5 +83,4 @@ public class SubscriptionsPage extends BasePage {
             //Will click on all subscription links
         }
     }
-
 }

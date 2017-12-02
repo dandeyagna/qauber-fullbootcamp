@@ -40,5 +40,4 @@ public class MainNavigationPage extends BasePage{
     public WebElement getReportsLink() {
         return reportsLink;
     }
-
 }

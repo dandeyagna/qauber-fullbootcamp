@@ -1,14 +1,17 @@
 package Pages;
 
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class LoginPage extends BasePage {
+
+public class LoginPage extends BasePage{
     public LoginPage(WebDriver driver){
         super(driver);
     }
+
     @FindBy(xpath = "/html/body/div[2]/div/div/div[1]/div[1]/a/img")
     private WebElement logo;
     @FindBy(xpath = "//input[@name='account_email']")
@@ -27,7 +30,7 @@ public class LoginPage extends BasePage {
     }
     public void setUsername(String strUsername){
         username.clear();
-        wait.until(ExpectedConditions.visibilityOf(username)).sendKeys(strUsername);
+        username.sendKeys(strUsername);
     }
     public void setPassword(String strPassword){
         password.clear();

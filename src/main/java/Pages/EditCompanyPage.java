@@ -101,6 +101,7 @@ public class EditCompanyPage extends BasePage {
     }
 
     public void clickUpdateBtn() {
+        executor.executeScript("arguments[0].scrollIntoView(true);",update);
         update.click();
     }
 

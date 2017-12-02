@@ -21,7 +21,7 @@ public class ProfilePanelPage extends BasePage {
     private WebElement profilePanelDisplayed;
 
 
-//    For assertion: changing color of profile icon and subscription icon from gay to blue
+    //    For assertion: changing color of profile icon and subscription icon from gay to blue
     @FindBy(xpath = "//li[@class= 'uib-tab nav-item ng-scope ng-isolate-scope active']/a/uib-tab-heading/em[@class='icon-equalizer fa-lg']")
     private WebElement subscriptionIconActive;
     @FindBy(xpath = "//li[@class= 'uib-tab nav-item ng-scope ng-isolate-scope active']/a/uib-tab-heading/em[@class='icon-user fa-lg']")
@@ -40,6 +40,7 @@ public class ProfilePanelPage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(editProfileBtn)).click();
     }
     public void clickEditCompanyBtn(){
+        executor.executeScript("arguments[0].scrollIntoView(true);",editCompanyBtn);
         wait.until(ExpectedConditions.elementToBeClickable(editCompanyBtn)).click();
     }
     public WebElement getProfilePanelDisplayed() {

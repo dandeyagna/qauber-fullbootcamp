@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class TestAddEntity extends TestLogin {
+public class AddEntityTest extends LoginTest {
     private MainNavigationPage mainNavigationPage;
     private EntitiesPage entitiesPage;
     private PaypalPage paypalPage;
