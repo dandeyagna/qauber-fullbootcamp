@@ -29,7 +29,7 @@ public class EntittTestNG {
 	@BeforeTest()
 	public void openBrowser() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver",
-				"C://Users//user//Downloads//chromedriver_win32//chromedriver.exe");
+				"C://Users//user//Downloads//chromedriver_win32(2)//chromedriver.exe");
 		driver = new ChromeDriver();
 		
 		driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
@@ -74,7 +74,7 @@ public class EntittTestNG {
 		addentity.click();
 
 		WebElement eName = driver.findElement(By.xpath("//input[@name='name']"));
-		eName.sendKeys("hellohi1");
+		eName.sendKeys("hellohi5");
 
 		driver.findElement(By.xpath("//button[@class='upload btn btn-labeled btn-primary']")).click();
 		String fileLocation = "C:\\Users\\user\\Desktop\\IMG_5400.JPG";
@@ -548,7 +548,7 @@ public class EntittTestNG {
 		
 	 }
 
-	@AfterTest(description = "Application logged out successfully",enabled=false)
+	@AfterTest(description = "Application logged out successfully")
 	public void logout() throws InterruptedException {
 		WebElement profile = driver.findElement(By.xpath("//em[@class='fa fa-caret-down']"));
 		profile.click();
