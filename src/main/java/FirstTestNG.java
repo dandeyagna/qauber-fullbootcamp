@@ -130,5 +130,6 @@ public class FirstTestNG {
 	@AfterTest
 	public void logOut() {
 		System.out.println("logout");
+		//System.out.println("logout");
 	}
 }
