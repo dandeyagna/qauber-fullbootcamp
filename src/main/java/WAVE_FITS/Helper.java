@@ -54,11 +54,12 @@ public class Helper {
     }
 
     public void creatingIdInfo() throws InterruptedException {
-
+        Thread.sleep(500);
         pageResources.getCreatingIDInformation().clickNextButton();
     }
 
-    public void creatingDistribution() {
+    public void creatingDistribution() throws InterruptedException {
+        Thread.sleep(500);
         pageResources.getCreatingDistribution().locationOfStop().sendKeys("Santa Clara");
         pageResources.getCreatingDistribution().clickNextButton();
     }
@@ -73,7 +74,8 @@ public class Helper {
         pageResources.getAddPhotos().clickNextButton();
     }
 
-    public void publishReport() {
+    public void publishReport() throws InterruptedException {
+        Thread.sleep(500);
         pageResources.getCreatePublishReport().clickPublishReport();
     }
 
@@ -151,6 +153,7 @@ public class Helper {
 
     }
     public void testCase10() throws InterruptedException {
+        Thread.sleep(500);
         if(pageResources.getIdentifiersPage().insertTattoos().isDisplayed()==false){
             Assert.assertFalse(pageResources.getIdentifiersPage().checkBoxTattoos().isSelected());
         }
