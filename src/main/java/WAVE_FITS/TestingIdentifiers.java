@@ -21,6 +21,7 @@ public class TestingIdentifiers {
     Helper helper;
 
     public void beforeTestcase() throws InterruptedException {
+        Thread.sleep(1000);
         helper.selectingEntity();
         helper.creatingSubjectInfo();
     }

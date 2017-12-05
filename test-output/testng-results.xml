@@ -2,90 +2,90 @@
 <testng-results skipped="0" failed="0" ignored="0" total="11" passed="11">
   <reporter-output>
   </reporter-output>
-  <suite name="Command line suite" duration-ms="87083" started-at="2017-12-05T20:10:33Z" finished-at="2017-12-05T20:12:00Z">
+  <suite name="Command line suite" duration-ms="114597" started-at="2017-12-05T22:07:51Z" finished-at="2017-12-05T22:09:45Z">
     <groups>
       <group name="TestCase9">
-        <method signature="TestingIdentifiers.testCase9()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase9" class="WAVE_FITS.TestingIdentifiers"/>
+        <method signature="TestingIdentifiers.testCase9()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase9" class="WAVE_FITS.TestingIdentifiers"/>
       </group> <!-- TestCase9 -->
       <group name="TestCase8">
-        <method signature="TestingIdentifiers.testCase8()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase8" class="WAVE_FITS.TestingIdentifiers"/>
+        <method signature="TestingIdentifiers.testCase8()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase8" class="WAVE_FITS.TestingIdentifiers"/>
       </group> <!-- TestCase8 -->
       <group name="TestCase7">
-        <method signature="TestingIdentifiers.testCase7()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase7" class="WAVE_FITS.TestingIdentifiers"/>
+        <method signature="TestingIdentifiers.testCase7()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase7" class="WAVE_FITS.TestingIdentifiers"/>
       </group> <!-- TestCase7 -->
       <group name="TestCase6">
-        <method signature="TestingIdentifiers.testCase6()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase6" class="WAVE_FITS.TestingIdentifiers"/>
+        <method signature="TestingIdentifiers.testCase6()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase6" class="WAVE_FITS.TestingIdentifiers"/>
       </group> <!-- TestCase6 -->
       <group name="TestCase5">
-        <method signature="TestingIdentifiers.testCase5()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase5" class="WAVE_FITS.TestingIdentifiers"/>
+        <method signature="TestingIdentifiers.testCase5()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase5" class="WAVE_FITS.TestingIdentifiers"/>
       </group> <!-- TestCase5 -->
       <group name="Testcase1">
-        <method signature="TestingIdentifiers.testCase1()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase1" class="WAVE_FITS.TestingIdentifiers"/>
+        <method signature="TestingIdentifiers.testCase1()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase1" class="WAVE_FITS.TestingIdentifiers"/>
       </group> <!-- Testcase1 -->
       <group name="TestCase4">
-        <method signature="TestingIdentifiers.testCase4()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase4" class="WAVE_FITS.TestingIdentifiers"/>
+        <method signature="TestingIdentifiers.testCase4()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase4" class="WAVE_FITS.TestingIdentifiers"/>
       </group> <!-- TestCase4 -->
       <group name="TestCase10">
-        <method signature="TestingIdentifiers.testCase10()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase10" class="WAVE_FITS.TestingIdentifiers"/>
+        <method signature="TestingIdentifiers.testCase10()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase10" class="WAVE_FITS.TestingIdentifiers"/>
       </group> <!-- TestCase10 -->
       <group name="TestCase3">
-        <method signature="TestingIdentifiers.testCase3()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase3" class="WAVE_FITS.TestingIdentifiers"/>
+        <method signature="TestingIdentifiers.testCase3()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase3" class="WAVE_FITS.TestingIdentifiers"/>
       </group> <!-- TestCase3 -->
       <group name="TestCase2">
-        <method signature="TestingIdentifiers.testCase2()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase2" class="WAVE_FITS.TestingIdentifiers"/>
+        <method signature="TestingIdentifiers.testCase2()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase2" class="WAVE_FITS.TestingIdentifiers"/>
       </group> <!-- TestCase2 -->
     </groups>
-    <test name="Command line test" duration-ms="87083" started-at="2017-12-05T20:10:33Z" finished-at="2017-12-05T20:12:00Z">
+    <test name="Command line test" duration-ms="114597" started-at="2017-12-05T22:07:51Z" finished-at="2017-12-05T22:09:45Z">
       <class name="WAVE_FITS.TestingIdentifiers">
-        <test-method status="PASS" signature="openApplication()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="openApplication" is-config="true" duration-ms="1652" started-at="2017-12-05T12:10:33Z" finished-at="2017-12-05T12:10:35Z">
+        <test-method status="PASS" signature="openApplication()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="openApplication" is-config="true" duration-ms="1537" started-at="2017-12-05T14:07:51Z" finished-at="2017-12-05T14:07:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method status="PASS" signature="loginToApplication()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="loginToApplication" duration-ms="3554" started-at="2017-12-05T12:10:35Z" finished-at="2017-12-05T12:10:39Z">
+        <test-method status="PASS" signature="loginToApplication()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="loginToApplication" duration-ms="3417" started-at="2017-12-05T14:07:52Z" finished-at="2017-12-05T14:07:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginToApplication -->
-        <test-method status="PASS" signature="testCase1()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase1" duration-ms="8417" started-at="2017-12-05T12:10:39Z" description="user is unable to write without checking Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.loginToApplication" finished-at="2017-12-05T12:10:47Z">
+        <test-method status="PASS" signature="testCase1()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase1" duration-ms="12085" started-at="2017-12-05T14:07:56Z" description="user is unable to write without checking Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.loginToApplication" finished-at="2017-12-05T14:08:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCase1 -->
-        <test-method status="PASS" signature="testCase2()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase2" duration-ms="8020" started-at="2017-12-05T12:10:47Z" description="user can select Tattoos in Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.testCase1" finished-at="2017-12-05T12:10:55Z">
+        <test-method status="PASS" signature="testCase2()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase2" duration-ms="10701" started-at="2017-12-05T14:08:08Z" description="user can select Tattoos in Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.testCase1" finished-at="2017-12-05T14:08:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCase2 -->
-        <test-method status="PASS" signature="testCase3()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase3" duration-ms="8087" started-at="2017-12-05T12:10:55Z" description="user can select Scars in Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.testCase2" finished-at="2017-12-05T12:11:03Z">
+        <test-method status="PASS" signature="testCase3()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase3" duration-ms="10988" started-at="2017-12-05T14:08:18Z" description="user can select Scars in Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.testCase2" finished-at="2017-12-05T14:08:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCase3 -->
-        <test-method status="PASS" signature="testCase4()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase4" duration-ms="8062" started-at="2017-12-05T12:11:03Z" description="user can select Scars in Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.testCase3" finished-at="2017-12-05T12:11:11Z">
+        <test-method status="PASS" signature="testCase4()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase4" duration-ms="10612" started-at="2017-12-05T14:08:29Z" description="user can select Scars in Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.testCase3" finished-at="2017-12-05T14:08:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCase4 -->
-        <test-method status="PASS" signature="testCase5()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase5" duration-ms="7944" started-at="2017-12-05T12:11:11Z" description="user can select Needle Marks in Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.testCase4" finished-at="2017-12-05T12:11:19Z">
+        <test-method status="PASS" signature="testCase5()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase5" duration-ms="10686" started-at="2017-12-05T14:08:40Z" description="user can select Needle Marks in Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.testCase4" finished-at="2017-12-05T14:08:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCase5 -->
-        <test-method status="PASS" signature="testCase6()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase6" duration-ms="7829" started-at="2017-12-05T12:11:19Z" description="user can select Tracks in Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.testCase5" finished-at="2017-12-05T12:11:27Z">
+        <test-method status="PASS" signature="testCase6()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase6" duration-ms="10502" started-at="2017-12-05T14:08:51Z" description="user can select Tracks in Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.testCase5" finished-at="2017-12-05T14:09:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCase6 -->
-        <test-method status="PASS" signature="testCase7()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase7" duration-ms="7933" started-at="2017-12-05T12:11:27Z" description="user can select Glasses in Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.testCase6" finished-at="2017-12-05T12:11:35Z">
+        <test-method status="PASS" signature="testCase7()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase7" duration-ms="10592" started-at="2017-12-05T14:09:01Z" description="user can select Glasses in Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.testCase6" finished-at="2017-12-05T14:09:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCase7 -->
-        <test-method status="PASS" signature="testCase8()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase8" duration-ms="8094" started-at="2017-12-05T12:11:35Z" description="user can select Mustache in Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.testCase7" finished-at="2017-12-05T12:11:43Z">
+        <test-method status="PASS" signature="testCase8()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase8" duration-ms="10714" started-at="2017-12-05T14:09:12Z" description="user can select Mustache in Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.testCase7" finished-at="2017-12-05T14:09:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCase8 -->
-        <test-method status="PASS" signature="testCase9()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase9" duration-ms="9948" started-at="2017-12-05T12:11:43Z" description="user can select Beard in Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.testCase8" finished-at="2017-12-05T12:11:53Z">
+        <test-method status="PASS" signature="testCase9()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase9" duration-ms="12192" started-at="2017-12-05T14:09:22Z" description="user can select Beard in Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.testCase8" finished-at="2017-12-05T14:09:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCase9 -->
-        <test-method status="PASS" signature="testCase10()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="testCase10" duration-ms="7367" started-at="2017-12-05T12:11:53Z" description="user can select more then two Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.testCase9" finished-at="2017-12-05T12:12:00Z">
+        <test-method status="PASS" signature="testCase10()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="testCase10" duration-ms="10422" started-at="2017-12-05T14:09:35Z" description="user can select more then two Identifiers" depends-on-methods="WAVE_FITS.TestingIdentifiers.testCase9" finished-at="2017-12-05T14:09:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCase10 -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:WAVE_FITS.TestingIdentifiers@49eaefee]" name="closeBrowser" is-config="true" duration-ms="118" started-at="2017-12-05T12:12:00Z" finished-at="2017-12-05T12:12:00Z">
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:WAVE_FITS.TestingIdentifiers@53b53829]" name="closeBrowser" is-config="true" duration-ms="109" started-at="2017-12-05T14:09:45Z" finished-at="2017-12-05T14:09:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->

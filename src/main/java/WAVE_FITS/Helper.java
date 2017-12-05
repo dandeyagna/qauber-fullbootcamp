@@ -38,18 +38,19 @@ public class Helper {
         Thread.sleep(1000);*/
         WebElement addReport = driver.findElement(By.xpath("//span[text()='Add Report']"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", addReport);
-        addReport.click();
         Thread.sleep(1000);
+        addReport.click();
         pageResources.getAddingEntity().selectingEntity().click();
         pageResources.getAddingEntity().clickNextButton();
     }
 
-    public void creatingSubjectInfo() {
+    public void creatingSubjectInfo() throws InterruptedException {
         Random rand = new Random();
         value = rand.nextInt(1000);
         pageResources.getCreatingSubjectInformation().caseID().sendKeys(String.valueOf(value));
         pageResources.getCreatingSubjectInformation().lastName().sendKeys("sam" + value);
         pageResources.getCreatingSubjectInformation().FirstName().sendKeys("samual");
+        Thread.sleep(500);
         pageResources.getCreatingSubjectInformation().clickNextButton();
     }
 
@@ -59,8 +60,8 @@ public class Helper {
     }
 
     public void creatingDistribution() throws InterruptedException {
-        Thread.sleep(500);
         pageResources.getCreatingDistribution().locationOfStop().sendKeys("Santa Clara");
+        Thread.sleep(500);
         pageResources.getCreatingDistribution().clickNextButton();
     }
 
@@ -69,8 +70,8 @@ public class Helper {
         pageResources.getVehicalDetails().clickNextButton();
     }
 
-    public void addPhoto() {
-
+    public void addPhoto() throws InterruptedException {
+        Thread.sleep(500);
         pageResources.getAddPhotos().clickNextButton();
     }
 
