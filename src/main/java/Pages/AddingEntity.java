@@ -12,14 +12,14 @@ public class AddingEntity {
     WebDriver driver;
     public AddingEntity(WebDriver driver){
         this.driver=driver;
-        PageFactory.initElements(driver, this);
+       // PageFactory.initElements(driver, this);
     }
     public void creatingEntity(){
         driver.findElement(By.xpath("//span[text()='Entities']"));
         driver.findElement(By.xpath("//button[text()='Add Entity']"));
     }
-    @FindBy(xpath = "//label[text()='cubo@nada.ltd']/span")
-    WebElement selectingEntity;
+   // @FindBy(xpath = "//label[text()='cubo@nada.ltd']/span")
+   // WebElement selectingEntity;
 
     public WebElement selectingEntity() {
 

@@ -5,6 +5,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -36,36 +38,51 @@ public class EvaluateSavingIdentifiers {
         helper.login();
     }
     @Test(dependsOnMethods = {"loginToApplication"})
-    public void EvaluationPage() {
+    public void EvaluationPage() throws InterruptedException {
         WebElement reportsPage = driver.findElement(By.xpath("//span[text()='Reports']"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", reportsPage);
         reportsPage.click();
-        int entity = 218;
+        int ent = 7767;
         int count = 1;
-        WebElement moveNextButton = driver.findElement(By.xpath("//a[@ng-click='setCurrent(pagination.current + 1)']"));
-        while (moveNextButton.getText()) {
+        String entity = Integer.toString(ent);
+        WebElement moveNextButton = driver.findElement(By.xpath("//a[@ng-click='setCurrent(pagination.current + 1)']/.."));
+        while (true) {
 
             boolean exist = false;
 
             List<WebElement> allElement = driver.findElements(By.xpath("//em[@title='Case ID']/../span"));
             for (WebElement e : allElement) {
+                String b = e.getText();
 
-                if (e.getText().equals(entity)) {
+                if (b.equals(entity)) {
+                    // System.out.println("//span[text()='"+b+"']/../../div[5]/a[1]");
+                    Thread.sleep(1000);
+                    WebElement foundCaseId = driver.findElement(By.xpath("//span[text()='" + b + "']/../../div[5]/a[1]"));
+                    ((JavascriptExecutor) driver).executeScript("scroll(0,400)");
+                    foundCaseId.click();
+
                     exist = true;
-                    System.out.println(entity + " Email id is present in user list");
-                    System.out.println(e.getText());
 
                 }
 
-                //Assert.assertEquals(exist, true, "Expected email id is not present");
+                // Assert.assertEquals(exist, true, "Expected email id is not present");
             }
             if (exist == true) {
                 break;
 
             }
-            count++;
-            WebElement page = driver.findElement(By.xpath("//a[text()='"+count+"']"));
-            page.click();
+            String attributeValue=moveNextButton.getAttribute("class").toString();
+            System.out.println(attributeValue);
+            if (attributeValue.equals("ng-scope"))
+           {
+               count++;
+               WebElement page = driver.findElement(By.xpath("//a[text()='"+count+"']"));
+               page.click();
+
+            }else {
+                break;
+            }
+
         }
     }
 }

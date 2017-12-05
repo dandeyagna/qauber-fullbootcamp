@@ -19,6 +19,11 @@ WebDriver dr;
     private VehicalDetails vehicalDetails;
     private AddPhotos addPhotos;
     private IdentifiersPage identifiersPage;
+    private ViewReports viewReports;
+
+    public ViewReports getViewReports() {
+        return viewReports;
+    }
 
     public IdentifiersPage getIdentifiersPage() {
         return identifiersPage;
@@ -71,6 +76,7 @@ WebDriver dr;
     addPhotos = new AddPhotos(dr);
     createPublishReport = new CreatePublishReport(dr);
     identifiersPage =new IdentifiersPage(dr);
+    viewReports=new ViewReports(dr);
 
 }
 

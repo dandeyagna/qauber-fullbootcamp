@@ -7,12 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class Helper {
     WebDriver driver;
     PageResources pageResources;
+    private int value;
 
     public Helper(WebDriver driver) {
         this.driver = driver;
@@ -20,26 +22,31 @@ public class Helper {
 
     }
 
-    public void login(String eMail,String password) throws InterruptedException {
+    public void login() throws InterruptedException {
         driver.get("http://fits.qauber.com/#/page/login");
         driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
         driver.manage().timeouts().pageLoadTimeout(10000, TimeUnit.MILLISECONDS);
-        pageResources.getLoginpage().userNamefield().sendKeys(eMail);
-        pageResources.getLoginpage().userPassword().sendKeys(password);
-        Thread.sleep(1000);
+        pageResources.getLoginpage().userNamefield().sendKeys("cubo@nada.ltd");
+        pageResources.getLoginpage().userPassword().sendKeys("abcdefgh");
+       Thread.sleep(1000);
         pageResources.getLoginpage().loginButton();
     }
 
     public void selectingEntity() throws InterruptedException {
+        /*WebElement addReport1 = driver.findElement(By.xpath("//a[@class ='hidden-xs']/em"));
+        addReport1.click();
+        Thread.sleep(1000);*/
         WebElement addReport = driver.findElement(By.xpath("//span[text()='Add Report']"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", addReport);
         addReport.click();
+        Thread.sleep(1000);
         pageResources.getAddingEntity().selectingEntity().click();
         pageResources.getAddingEntity().clickNextButton();
     }
 
     public void creatingSubjectInfo() {
         Random rand = new Random();
-        int value = rand.nextInt(1000);
+        value = rand.nextInt(1000);
         pageResources.getCreatingSubjectInformation().caseID().sendKeys(String.valueOf(value));
         pageResources.getCreatingSubjectInformation().lastName().sendKeys("sam" + value);
         pageResources.getCreatingSubjectInformation().FirstName().sendKeys("samual");
@@ -181,6 +188,52 @@ public class Helper {
     }
     public void selectingPedestrian(){
         pageResources.getCreatingSubjectInformation().SelectingPedestrian();
+    }
+
+    public void EvaluationPage() throws InterruptedException {
+        WebElement reportsPage = driver.findElement(By.xpath("//span[text()='Reports']"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", reportsPage);
+        reportsPage.click();
+        Thread.sleep(1000);
+        int count = 1;
+        String entity= Integer.toString(value);
+        while (true) {
+
+            boolean exist = false;
+
+            List<WebElement> allElement = driver.findElements(By.xpath("//em[@title='Case ID']/../span"));
+            for (WebElement e : allElement) {
+                String b = e.getText();
+
+                if (b.equals(entity)){
+                   // System.out.println("//span[text()='"+b+"']/../../div[5]/a[1]");
+                    Thread.sleep(1000);
+                    WebElement foundCaseId=driver.findElement(By.xpath("//span[text()='"+b+"']/../../div[5]/a[1]"));
+                    ((JavascriptExecutor)driver).executeScript("scroll(0,400)");
+                    foundCaseId.click();
+
+                    exist = true;
+
+                }
+
+                // Assert.assertEquals(exist, true, "Expected email id is not present");
+            }
+            if (exist==true) {
+                break;
+
+            }
+            WebElement moveNextButton = driver.findElement(By.xpath("//a[@ng-click='setCurrent(pagination.current + 1)']"));
+            if(moveNextButton.isDisplayed()){
+                count++;
+                WebElement page = driver.findElement(By.xpath("//a[text()='"+count+"']"));
+                page.click();
+
+            }
+            else{
+                break;
+            }
+
+        }
     }
 
 
