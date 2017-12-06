@@ -5,6 +5,8 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -12,7 +14,7 @@ import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -22,19 +24,31 @@ import org.testng.annotations.Test;
 public class RegistrationTestNG {
  WebDriver driver;
  WebDriver driver1;	
+ public static final String USERNAME = "amruthaabkk1";
+ public static final String AUTOMATE_KEY = "CXgK8FsZicoyRYscPjsK";
+ public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
+
 	@BeforeTest()
-	public void openBrowser() throws InterruptedException{
-	System.setProperty("webdriver.chrome.driver", "C://Users//user//Downloads//chromedriver_win32//chromedriver.exe");
-	System.setProperty("webdriver.chrome.driver1", "C://Users//user//Downloads//chromedriver_win32//chromedriver.exe");
-	 driver = new ChromeDriver();
-	 driver1 = new ChromeDriver();
+	public void openBrowser() throws InterruptedException, MalformedURLException{
+//	System.setProperty("webdriver.chrome.driver", "C://Users//user//Downloads//chromedriver_win32//chromedriver.exe");
+//	System.setProperty("webdriver.chrome.driver1", "C://Users//user//Downloads//chromedriver_win32//chromedriver.exe");
+		 DesiredCapabilities caps = new DesiredCapabilities();
+		    caps.setCapability("device", "iPhone 8 Plus");
+		    caps.setCapability("realMobile", "true");
+		    caps.setCapability("os_version", "11.0");
+
+		   
+		    driver = new RemoteWebDriver(new URL(URL), caps);
+	    driver1= new RemoteWebDriver(new URL(URL), caps);
+//	 driver = new ChromeDriver();
+//	 driver1 = new ChromeDriver();
 	driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
 	driver.manage().timeouts().pageLoadTimeout(10000, TimeUnit.MILLISECONDS);
 	driver1.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
 	driver1.manage().timeouts().pageLoadTimeout(10000, TimeUnit.MILLISECONDS);
 }
 	
-	@Test(priority=0)
+	@Test(description="BC-507")
 	public void reg1() throws InterruptedException{
 		driver.get("http://fits.qauber.com/#/page/login");
 		Thread.sleep(5000);
@@ -47,7 +61,7 @@ public class RegistrationTestNG {
 		driver.findElement(
 				By.xpath("//input[@name='account_name']")).sendKeys("Reya");
 		driver.findElement(
-				By.xpath("//input[@name='account_email']")).sendKeys("selenium47@mailinator.com");
+				By.xpath("//input[@name='account_email']")).sendKeys("seleniumfits@mailinator.com");
 		driver.findElement(
 				By.xpath(".//*[@id='id-password']")).sendKeys("automation");
 		driver.findElement(
@@ -61,10 +75,10 @@ public class RegistrationTestNG {
 		System.out.println("Succesfully done Resgistration step1");
 	}
 	
-	@Test(dependsOnMethods={"reg1"})
+	@Test(dependsOnMethods={"reg1"},description="BC-508")
 	public void regStep2() throws InterruptedException, AWTException{
 		driver.findElement(
-				By.xpath("//input[@name='name']")).sendKeys("Fits29");
+				By.xpath("//input[@name='name']")).sendKeys("Fits40");
 
 		driver.findElement(
 				By.xpath("//button[@class='upload btn btn-labeled btn-primary']")).click();
@@ -172,13 +186,13 @@ public class RegistrationTestNG {
 		System.out.println("Succesfully done Resgistration step2 ");
 	}
 	
-	@Test
+	@Test(description="BC-509",dependsOnMethods={"regStep2"})
 	public void regStep3() throws InterruptedException{
 		driver1.get("https://www.mailinator.com/v2/inbox.jsp#");
 		Thread.sleep(5000);
 		
 		driver1.findElement(
-				By.xpath(".//*[@id='inbox_field']")).sendKeys("selenium47");
+				By.xpath(".//*[@id='inbox_field']")).sendKeys("seleniumfits");
 		driver1.findElement(
 				By.xpath(".//*[@id='inbox_button']/i")).click();
 		

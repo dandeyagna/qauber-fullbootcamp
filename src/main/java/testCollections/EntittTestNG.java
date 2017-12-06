@@ -29,7 +29,7 @@ public class EntittTestNG {
 	@BeforeTest()
 	public void openBrowser() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver",
-				"C://Users//user//Downloads//chromedriver_win32//chromedriver.exe");
+				"C:\\Users\\user\\Downloads\\chromedriver_win32 (2)\\chromedriver.exe");
 		driver = new ChromeDriver();
 		
 		driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
@@ -74,7 +74,7 @@ public class EntittTestNG {
 		addentity.click();
 
 		WebElement eName = driver.findElement(By.xpath("//input[@name='name']"));
-		eName.sendKeys("hello7");
+		eName.sendKeys("hellohi5");
 
 		driver.findElement(By.xpath("//button[@class='upload btn btn-labeled btn-primary']")).click();
 		String fileLocation = "C:\\Users\\user\\Desktop\\IMG_5400.JPG";
@@ -181,7 +181,7 @@ public class EntittTestNG {
 		confirmAd.click();
 
 	}
-	@Test(groups = { "functional" },dependsOnMethods={"step3_addEntity"},description = "Adding Entity")
+	@Test(groups = { "functional" },dependsOnMethods={"step3_addEntity"},description = "BC-501 Adding Entity")
 	public void addEntity() throws InterruptedException, AWTException {
 		
 		Thread.sleep(5000);
@@ -217,7 +217,7 @@ public class EntittTestNG {
 		while( page.isDisplayed() != false){
 			List<WebElement> allElement = driver.findElements(By.xpath("//table[@class='table table-bordered']//a"));
 			for (WebElement f : allElement) {
-				String value = "hello9";
+				String value = "hellohi1";
 				if (f.getAttribute("text").equals(value)) {
 					System.out.println("Pass");
 					
@@ -229,7 +229,7 @@ public class EntittTestNG {
 
 	}
 
-	@Test(dependsOnMethods = {"login" ,"step1_addEntity" },enabled=false)
+	@Test(dependsOnMethods = {"step1_addEntity" },description="BC-489",enabled=false)
 	public void withutRegUserAdminUser() throws InterruptedException {
 		Thread.sleep(5000);
 		WebElement next1 = driver.findElement(By.xpath("//button[@class='btn btn-info btn-labeled'][2]"));
@@ -259,19 +259,46 @@ public class EntittTestNG {
 
 		driver.findElement(By.xpath(".//*[@id='continue']")).click();
 	}
-	@Test(dependsOnMethods = { "step1_addEntity" },enabled=false)
-	public void withoutAdminUser() throws InterruptedException{
-		WebElement regularUserEmailId = driver.findElement(By.xpath("//div[@class='bootstrap-tagsinput']/input"));
-		regularUserEmailId.sendKeys(" selenium@mailinator.com ");
-
+	@Test(dependsOnMethods = { "step1_addEntity" },description="BC-491")
+	public void withoutRegUser() throws InterruptedException{
+		Thread.sleep(5000);
 		WebElement next1 = driver.findElement(By.xpath("//button[@class='btn btn-info btn-labeled'][2]"));
 
 		next1.click();
 
 		Thread.sleep(5000);
+		WebElement adminUserEmailId = driver.findElement(By.xpath("//div[@class='form-group']/div/input"));
+		adminUserEmailId.sendKeys(" selenium1@mailinator.com ");
 
-		WebElement confirm = driver.findElement(By.xpath("//button[text()='Done']"));
-		confirm.click();
+		Thread.sleep(5000);
+
+		WebElement nextAdmin = driver.findElement(By.xpath("//button[@class='btn btn-info btn-labeled'][2]"));
+
+		nextAdmin.click();
+
+		Thread.sleep(5000);
+
+		WebElement confirmAd = driver.findElement(By.xpath("//button[text()='Done']"));
+		confirmAd.click();
+		
+		WebElement finishSubs = driver.findElement(By.xpath("//button[@class='btn btn-info btn-labeled'][2]"));
+		finishSubs.click();
+		Thread.sleep(5000);
+
+		driver.findElement(By.xpath("//span[@class='rightarrow']")).click();
+
+		WebElement paypalemai = driver.findElement(By.xpath(".//*[@id='login_email']"));
+		paypalemai.sendKeys("mss.bharati-1@gmail.com");
+
+		WebElement paypalPass = driver.findElement(By.xpath(".//*[@id='login_password']"));
+		paypalPass.sendKeys("hisandbox");
+
+		driver.findElement(By.xpath(".//*[@id='submitLogin']")).click();
+
+		driver.findElement(By.xpath(".//*[@id='continue']")).click();
+	}
+	@Test(dependsOnMethods = { "step2_addEntity" },description="BC-492",enabled=false)
+	public void withoutAdminUser() throws InterruptedException{
 		Thread.sleep(5000);
 		WebElement nextAdmin = driver.findElement(By.xpath("//button[@class='btn btn-info btn-labeled'][2]"));
 
@@ -431,19 +458,36 @@ public class EntittTestNG {
 
 			}
 		}
-		page.click();
-		while( page.isDisplayed() != false){
+
+		int count = 1;
+
+		WebElement pagination = driver.findElement(By.xpath("//a[text()='›']"));
+
+		while (pagination.isDisplayed()) {
+			
+			boolean exist = false;
+
 			List<WebElement> allElement = driver.findElements(By.xpath("//table[@class='table table-bordered']//a"));
-			for (WebElement f : allElement) {
-				String value = "hello";
-				if (f.getAttribute("text").equals(value)) {
-					System.out.println("Pass");
+			for (WebElement e : allElement) {
+				String value = "hellohi1";
+				if (e.getText().equals(value)) {
+					exist = true;
+					System.out.println(value + " Entity is present");
 					
+
 				}
 				
-				}
-			break;
+				//Assert.assertEquals(exist, true, "Expected email id is not present");
+					}
+		if(exist==true){
+		break;
 		}
+		count++;
+		WebElement page1 = driver.findElement(By.xpath("//a[text()='" + count + "']"));
+		page1.click();
+
+	}
+
 	}
 	
 	 public static int getPixels(int totalWidth,int percentage){
@@ -504,7 +548,7 @@ public class EntittTestNG {
 		
 	 }
 
-	@AfterTest(description = "Application logged out successfully",enabled=false)
+	@AfterTest(description = "Application logged out successfully")
 	public void logout() throws InterruptedException {
 		WebElement profile = driver.findElement(By.xpath("//em[@class='fa fa-caret-down']"));
 		profile.click();
