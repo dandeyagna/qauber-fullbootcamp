@@ -106,6 +106,7 @@ public class AddreportTest {
         Thread.sleep(3000);
 
         String lastname="Bond";
+        String firstname="Dan";
         subjectInformation.getLastName().sendKeys(lastname);
         subjectInformation.getFirstName().sendKeys("Dan");
         subjectInformation.gotoidentifiers_information();
@@ -150,8 +151,8 @@ public class AddreportTest {
         Thread.sleep(3000);
 
         String suspecttype = "suspect";
-        WebElement suspecttype = dr.findElement(By.xpath("//select[@ng-model='stSearchKey']"));
-        suspecttype.sendKeys("suspect");
+        WebElement susp= dr.findElement(By.xpath("//select[@ng-model='stSearchKey']"));
+        susp.sendKeys("suspectype");
         Thread.sleep(3000);
 
 
