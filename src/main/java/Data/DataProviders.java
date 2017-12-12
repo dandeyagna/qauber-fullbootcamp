@@ -65,10 +65,10 @@ public class DataProviders {
     public static Object[][] addEntityInfo() {
         Object[][] data = new Object[1][10];
         data[0][0] = RandomStringUtils.randomAlphabetic(8).toLowerCase();//company name
-        data[0][1] = "United States";//country
+        data[0][1] = "US";//country
         data[0][2] = RandomStringUtils.randomNumeric(3) + " " + RandomStringUtils.randomAlphabetic(5) + " Str.";//address1
         data[0][3] = RandomStringUtils.randomAlphabetic(5).toLowerCase();//city
-        data[0][4] = "Vermont";//state
+        data[0][4] = "NJ";//state
         data[0][5] = RandomStringUtils.randomNumeric(5);//zip
         data[0][6] = RandomStringUtils.randomNumeric(10);//phone
         data[0][7] = RandomStringUtils.randomAlphabetic(8) + "@cars2.club";//email

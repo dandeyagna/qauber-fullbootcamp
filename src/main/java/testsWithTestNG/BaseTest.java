@@ -1,11 +1,18 @@
 package testsWithTestNG;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.testng.ITestResult;
 import pages.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertTrue;
@@ -33,6 +40,18 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
         assertTrue(loginPage.getLogo().isDisplayed());
     }
+    /*
+    @AfterMethod
+
+    public void takeScreenShotOnFailure(ITestResult testResult) throws IOException {
+        if (testResult.getStatus() == ITestResult.FAILURE) {
+            System.out.println(testResult.getStatus());
+            File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(scrFile, new File("C:\\Users\\mcovi\\IdeaProjects\\learnJenkins\\src\\main\\java\\screenShots\\" + testResult.getName() + "-"
+                    + Arrays.toString(testResult.getParameters()) + ".jpg"));
+
+        }
+    }*/
 
     @AfterClass
     public void baseAfterClass() {

@@ -28,8 +28,8 @@ public class AddEntityTest extends LoginTest {
         entitiesPage.setPhone(phone);
         entitiesPage.setEmail(email);
         entitiesPage.clickNextStepBtn();
-        //Thread.sleep(4000);
-        //entitiesPage.clickNextStepBtn();
+        Thread.sleep(4000);
+        entitiesPage.clickNextStepBtn();
         Thread.sleep(4000);
         entitiesPage.setAddEmailRU(RUemail);
         Thread.sleep(4000);
@@ -37,7 +37,7 @@ public class AddEntityTest extends LoginTest {
         entitiesPage.setAddEmailFieldAU(AUemail);
         entitiesPage.clickNextStepBtn();
         entitiesPage.clickFinishBtn();
-        Thread.sleep(20000);
+        Thread.sleep(25000);
         paypalPage = new PaypalPage(driver);
         paypalPage.paypalSwitchAndPay();
         Thread.sleep(10000);
