@@ -1,10 +1,14 @@
-package Tests;
+package testsWithTestNG;
 
-import Data.DataProviders;
-import Pages.AddReportPage;
-import Pages.MainNavigationPage;
+import data.DataProviders;
+import pages.AddReportPage;
+import pages.MainNavigationPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.awt.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AddReportTest extends LoginTest {
     private MainNavigationPage mainNavigationPage;
@@ -15,14 +19,16 @@ public class AddReportTest extends LoginTest {
     public void testAddReport(String caseId, String suspectType, String lastName, String firstName,
                               String middleName, String nickname, String dob, String sex, String race, String height,
                               String weight, String hairColor, String hairLength, String hairStyle, String eyeColor,
-                              String complexion,String teeth, String handPreference, String language, String streetAddress,
-                              String country, String city, String state, String zip,String phone, String email,String ssn,
-                              String driverLicenseN,String idState, String otherId,String otherCountry, String otherIdState,
+                              String complexion, String teeth, String handPreference, String language, String streetAddress,
+                              String country, String city, String state, String zip, String phone, String email, String ssn,
+                              String driverLicenseN, String idState, String otherId, String otherCountry, String otherIdState,
                               String otherIdType, String schoolName, String schoolAddress, String schoolCity, String schoolState,
-                              String schoolZip, String schoolPhone,String parentName, String parentAddress, String parentCity,
-                              String parentState,String parentZip, String parentPhone, String occupation, String employerName, String employerAddress,
-                              String employerCity,String employerState,String employerZip, String employerPhone) throws InterruptedException {
-        mainNavigationPage=new MainNavigationPage(driver);
+                              String schoolZip, String schoolPhone, String parentName, String parentAddress, String parentCity,
+                              String parentState, String parentZip, String parentPhone, String occupation, String employerName, String employerAddress,
+                              String employerCity, String employerState, String employerZip, String employerPhone, String reasonForStop, String locationOfStop,
+                              String dispositionOfStop, String gangName, String howLong, String otherInformation, String beat,
+                              String vehicleLicense, String vehicleMake, String vehicleColor) throws InterruptedException, AWTException {
+        mainNavigationPage = new MainNavigationPage(driver);
         mainNavigationPage.clickAddReportLink();
         //click on add report link
         addReportPage = new AddReportPage(driver);
@@ -32,7 +38,7 @@ public class AddReportTest extends LoginTest {
         addReportPage.clickEntityNameRBtn();
         //move to next page
         addReportPage.clickNextBtn();
-        String title2 =addReportPage.getSubjectInformationTitle();
+        String title2 = addReportPage.getSubjectInformationTitle();
         Assert.assertEquals(title2, "Subject Information");
         //Add information about suspect
         addReportPage.setCaseId(caseId);
@@ -66,7 +72,7 @@ public class AddReportTest extends LoginTest {
         addReportPage.setEmail(email);
         addReportPage.clickDriverRadioBtn();
         addReportPage.clickNextBtn2();
-        String title3 =addReportPage.getIdentifiersTitle();
+        String title3 = addReportPage.getIdentifiersTitle();
         Assert.assertEquals(title3, "Identifiers");
         addReportPage.clickCheckBoxes();
         addReportPage.clickNextBtn3();
@@ -105,17 +111,39 @@ public class AddReportTest extends LoginTest {
         addReportPage.clickNextBtn4();
         String title5 = addReportPage.getDistributionTitle();//move to next tab
         Assert.assertEquals(title5, "Gang Membership");
-
-        //in progress
-
-
-        /*
+        addReportPage.clickDistributionCheckboxes();
+        addReportPage.setReasonForStop(reasonForStop);
+        addReportPage.setlocationOfStop(locationOfStop);
+        addReportPage.setdispositionOfStop(dispositionOfStop);
+        addReportPage.setgangName(gangName);
+        addReportPage.sethowLong(howLong);
+        addReportPage.clickGangCriteriaCheckboxes();
+        addReportPage.setOtherInformation(otherInformation);
+        addReportPage.setBeat(beat);
+        addReportPage.clickNextBtn5();
         String title6 = addReportPage.getVehicleTitle();
         Assert.assertEquals(title6, "Vehicle");
+        //vehicle information
+        addReportPage.setvehicleLicense(vehicleLicense);
+        addReportPage.setvehicleMake(vehicleMake);
+        addReportPage.setvehicleColor(vehicleColor);
+        addReportPage.clickNextBtn6();
         String title7 = addReportPage.getPhotosTitle();
         Assert.assertEquals(title7, "Photos");
+
+        //add picture to report
+        addReportPage.uploadImage();
+        addReportPage.clickNextBtn7();
+
         String title8 = addReportPage.getReviewInfo();
         Assert.assertEquals(title8, "Preview");
-        */
+        addReportPage.clickPublishReportBtn();
+
+        Pattern pattern = Pattern.compile(lastName);
+        Matcher matcher = pattern.matcher(addReportPage.getAssertReportPosted());
+        System.out.println("My string: " + addReportPage.getAssertReportPosted());
+        System.out.println("Pattern i'm looking for (lastName and caseId): " + lastName + "," + caseId);
+        //assert that report with last name x is published and visible on search report page
+        Assert.assertTrue(matcher.find());
     }
 }

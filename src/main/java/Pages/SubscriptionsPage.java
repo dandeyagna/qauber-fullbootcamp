@@ -1,4 +1,4 @@
-package Pages;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +10,10 @@ import java.util.Iterator;
 import java.util.List;
 
 public class SubscriptionsPage extends BasePage {
-    public SubscriptionsPage(WebDriver driver){super(driver);}
+    public SubscriptionsPage(WebDriver driver) {
+        super(driver);
+    }
+
     @FindBy(xpath = "//div[@class = 'media bb pl-sm pr-sm ng-scope']/a")
     private List<WebElement> subscriptionLinks;
 
@@ -30,14 +33,16 @@ public class SubscriptionsPage extends BasePage {
     @FindBy(xpath = "//button[@type='button' and text()='Close']")
     private WebElement closeBtn;
 
-    public void clickChangeSubBtn(){
+    public void clickChangeSubBtn() {
         wait.until(ExpectedConditions.elementToBeClickable(changeSubBtn));
-        executor.executeScript("arguments[0].click();",changeSubBtn);
+        executor.executeScript("arguments[0].click();", changeSubBtn);
     }
-    public void clickCloseBtn(){
+
+    public void clickCloseBtn() {
         wait.until(ExpectedConditions.elementToBeClickable(closeBtn)).click();
     }
-    public void clickCancelSubscriptionBtn(){
+
+    public void clickCancelSubscriptionBtn() {
         wait.until(ExpectedConditions.elementToBeClickable(cancelSubscriptionBtn)).click();
     }
 
@@ -48,17 +53,19 @@ public class SubscriptionsPage extends BasePage {
         WebElement slider = sliderBtn;
         Actions sliderAction = new Actions(driver);
         sliderAction.clickAndHold(slider);
-        int x = getPixels(widthSliderBar,60);
+        int x = getPixels(widthSliderBar, 60);
         sliderAction.moveByOffset(x, 0).perform();
     }
-    public static int getPixels(int totalWidth,int percentage){
-        return (int)((totalWidth*percentage)/100);
+
+    public static int getPixels(int totalWidth, int percentage) {
+        return (int) ((totalWidth * percentage) / 100);
     }
 
     public WebElement getDialogMessage() {
         return dialogMessage;
     }
-    public String getDialogMessageText(){
+
+    public String getDialogMessageText() {
         return dialogMessageGet.getText();
     }
 
@@ -66,19 +73,20 @@ public class SubscriptionsPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOfAllElements(subscriptionLinks));
         return subscriptionLinks;
     }
-    public int countAllSubscriptionLinks(){
-        Iterator<WebElement> iterator =subscriptionLinks.iterator();
-        int count=0;
-        while (iterator.hasNext()){
-            count = count+1;
+
+    public int countAllSubscriptionLinks() {
+        Iterator<WebElement> iterator = subscriptionLinks.iterator();
+        int count = 0;
+        while (iterator.hasNext()) {
+            count = count + 1;
             iterator.next();
         }
         return count;
     }
 
-    public void clickAllSubscriptionLinks(){
-        Iterator<WebElement> iterator =subscriptionLinks.iterator();
-        while (iterator.hasNext()){
+    public void clickAllSubscriptionLinks() {
+        Iterator<WebElement> iterator = subscriptionLinks.iterator();
+        while (iterator.hasNext()) {
             iterator.next().click();
             //Will click on all subscription links
         }

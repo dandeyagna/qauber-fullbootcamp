@@ -1,4 +1,4 @@
-package Pages;
+package pages;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,11 +9,12 @@ public class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
     protected JavascriptExecutor executor;
-    public BasePage(WebDriver driver){
+
+    public BasePage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver,this );
+        PageFactory.initElements(driver, this);
         wait = new WebDriverWait(driver, 10);
-        executor = (JavascriptExecutor)driver;
+        executor = (JavascriptExecutor) driver;
 
     }
 }

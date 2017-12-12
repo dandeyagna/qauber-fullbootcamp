@@ -1,9 +1,8 @@
-package Tests;
+package testsWithTestNG;
 
-import Data.DataProviders;
-import Pages.LoginPage;
+import data.DataProviders;
+import pages.LoginPage;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;
@@ -12,7 +11,7 @@ public class LoginTest extends BaseTest {
     private LoginPage loginPage;
 
 
-    @Test(dataProviderClass = DataProviders.class,dataProvider= "usernamePassword", priority = 0)
+    @Test(dataProviderClass = DataProviders.class, dataProvider = "usernamePassword", priority = 0)
     public void testLogin(String username, String password) throws InterruptedException {
 
         loginPage = new LoginPage(driver);

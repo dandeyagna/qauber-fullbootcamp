@@ -1,9 +1,8 @@
-package Tests;
-import Pages.HeaderPage;
-import Pages.MainNavigationPage;
-import Pages.ProfilePanelPage;
+package testsWithTestNG;
+import pages.HeaderPage;
+import pages.MainNavigationPage;
+import pages.ProfilePanelPage;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class TestOpenProfilePanel extends LoginTest {

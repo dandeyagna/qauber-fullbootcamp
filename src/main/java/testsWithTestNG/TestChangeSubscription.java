@@ -1,9 +1,9 @@
-package Tests;
+package testsWithTestNG;
 
-import Pages.HeaderPage;
-import Pages.PaypalPage;                         //This tests need to be refactored
-import Pages.ProfilePanelPage;
-import Pages.SubscriptionsPage;
+import pages.HeaderPage;
+import pages.PaypalPage;                         //This tests need to be refactored
+import pages.ProfilePanelPage;
+import pages.SubscriptionsPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -19,7 +19,7 @@ public class TestChangeSubscription extends LoginTest {
     private PaypalPage paypalPage;
 
     @Test(dependsOnMethods = "testLogin")
-    public void SubscriptionTest() throws InterruptedException {
+    public void subscriptionTest() throws InterruptedException {
         headerPage = new HeaderPage(driver);
         headerPage.clickUserLink();
         profilePanelPage = new ProfilePanelPage(driver);
@@ -64,6 +64,7 @@ public class TestChangeSubscription extends LoginTest {
         }
         //can not assert.This pop up window is on html even when is not displayed(in use)
     }
+
     @Test(dependsOnMethods = "testLogin")
 
     public void deleteSubscriptionTest() throws InterruptedException {
@@ -72,10 +73,10 @@ public class TestChangeSubscription extends LoginTest {
         headerPage.clickUserLink();
         profilePanelPage.clickSubscriptionIcon();
         subscriptionsPage = new SubscriptionsPage(driver);
-        List<WebElement> nr =subscriptionsPage.getAllSubscriptionLinks();
+        List<WebElement> nr = subscriptionsPage.getAllSubscriptionLinks();
         int totalNrBeforeDeleting = subscriptionsPage.countAllSubscriptionLinks();//count how many links i have before deleting one of them
-        Iterator<WebElement> iterator =nr.iterator();
-        while (iterator.hasNext()){
+        Iterator<WebElement> iterator = nr.iterator();
+        while (iterator.hasNext()) {
             iterator.next().click();////Will click on all subscription links
             driver.switchTo().activeElement();
             subscriptionsPage.clickCancelSubscriptionBtn();
@@ -88,11 +89,11 @@ public class TestChangeSubscription extends LoginTest {
         }
         headerPage.clickUserLink();
         profilePanelPage.clickSubscriptionIcon();
-        List<WebElement> nr2 =subscriptionsPage.getAllSubscriptionLinks();
+        List<WebElement> nr2 = subscriptionsPage.getAllSubscriptionLinks();
         int totalNrAfterDeleting = subscriptionsPage.countAllSubscriptionLinks();
 
-        System.out.println("Total Nr. of links Before Deleting: "+totalNrBeforeDeleting + " Total Nr. of links After Deleting: "+totalNrAfterDeleting);
+        System.out.println("Total Nr. of links Before Deleting: " + totalNrBeforeDeleting + " Total Nr. of links After Deleting: " + totalNrAfterDeleting);
 
-        Assert.assertTrue(totalNrBeforeDeleting>totalNrAfterDeleting);
+        Assert.assertTrue(totalNrBeforeDeleting > totalNrAfterDeleting);
     }
 }

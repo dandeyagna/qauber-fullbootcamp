@@ -1,9 +1,9 @@
-package Tests;
+package testsWithTestNG;
 
-import Pages.EditProfilePage;
-import Pages.HeaderPage;
-import Pages.ProfilePanelPage;
-import Data.DataProviders;
+import pages.EditProfilePage;
+import pages.HeaderPage;
+import pages.ProfilePanelPage;
+import data.DataProviders;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -13,12 +13,13 @@ public class ChangeNameTest extends LoginTest {
     private ProfilePanelPage profilePanelPage;
     private EditProfilePage editProfilePage;
     private HeaderPage headerPage;
+
     @BeforeMethod
-    public void beforeMethod(){
+    public void beforeMethod() {
     }
 
-    @Test(dependsOnMethods = "testLogin", dataProviderClass = DataProviders.class,dataProvider= "ChangeName")
-    public void testChangeName(String name){
+    @Test(dependsOnMethods = "testLogin", dataProviderClass = DataProviders.class, dataProvider = "ChangeName")
+    public void testChangeName(String name) {
 
         headerPage = new HeaderPage(driver);
         headerPage.clickUserLink();
@@ -33,8 +34,9 @@ public class ChangeNameTest extends LoginTest {
         Assert.assertEquals(successMessage, "The profile has been updated.");
         headerPage.clickLogo();
     }
+
     @Test(dependsOnMethods = "testLogin")
-    private void testErrorForChangeName(){
+    private void testErrorForChangeName() {
         headerPage.clickUserLink();
         profilePanelPage.clickEditProfileBtn();
         editProfilePage.setNameField(" ");

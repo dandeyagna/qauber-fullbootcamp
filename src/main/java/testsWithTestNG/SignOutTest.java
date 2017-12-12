@@ -1,8 +1,8 @@
-package Tests;
+package testsWithTestNG;
 
-import Pages.HeaderPage;
-import Pages.LoginPage;
-import Pages.ProfilePanelPage;
+import pages.HeaderPage;
+import pages.LoginPage;
+import pages.ProfilePanelPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,7 +12,7 @@ public class SignOutTest extends LoginTest {
     private HeaderPage headerPage;
 
     @Test(dependsOnMethods = "testLogin")
-    public void testSignOut(){
+    public void testSignOut() {
         headerPage = new HeaderPage(driver);
         headerPage.clickUserLink();
         profilePanelPage = new ProfilePanelPage(driver);

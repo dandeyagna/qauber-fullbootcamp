@@ -1,4 +1,4 @@
-package Pages;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +10,10 @@ import java.util.Iterator;
 import java.util.List;
 
 public class EditCompanyPage extends BasePage {
-    public EditCompanyPage(WebDriver driver){super(driver);}
+    public EditCompanyPage(WebDriver driver) {
+        super(driver);
+    }
+
     @FindBy(xpath = "//input[@ng-model='$ctrl.company.name']")
     private WebElement companyName;
     @FindBy(xpath = "//select[@name='country']")
@@ -28,7 +31,7 @@ public class EditCompanyPage extends BasePage {
     @FindBy(xpath = "//input[contains(@ng-model,'$ctrl.company.zip')]")
     private WebElement zip;
     @FindBy(xpath = "//input[@ng-model='$ctrl.company.phone']")
-    private  WebElement phone;
+    private WebElement phone;
     @FindBy(xpath = "//input[@ng-model='$ctrl.company.email']")
     private WebElement email;
     @FindBy(xpath = "//textarea[@ng-model='$ctrl.company.notes']")
@@ -44,11 +47,12 @@ public class EditCompanyPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOfAllElements(requiredFields));
         return requiredFields;
     }
-    public int countRequiredFields(){
-        Iterator<WebElement> iterator =requiredFields.iterator();
+
+    public int countRequiredFields() {
+        Iterator<WebElement> iterator = requiredFields.iterator();
         int counter = 0;
-        while (iterator.hasNext()){
-            counter= counter+1;
+        while (iterator.hasNext()) {
+            counter = counter + 1;
             iterator.next();
         }
         return counter;
@@ -101,7 +105,7 @@ public class EditCompanyPage extends BasePage {
     }
 
     public void clickUpdateBtn() {
-        executor.executeScript("arguments[0].scrollIntoView(true);",update);
+        executor.executeScript("arguments[0].scrollIntoView(true);", update);
         update.click();
     }
 

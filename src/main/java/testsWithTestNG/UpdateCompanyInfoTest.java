@@ -1,9 +1,9 @@
-package Tests;
+package testsWithTestNG;
 
-import Data.DataProviders;
-import Pages.EditCompanyPage;
-import Pages.HeaderPage;
-import Pages.ProfilePanelPage;
+import data.DataProviders;
+import pages.EditCompanyPage;
+import pages.HeaderPage;
+import pages.ProfilePanelPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 public class UpdateCompanyInfoTest extends LoginTest {

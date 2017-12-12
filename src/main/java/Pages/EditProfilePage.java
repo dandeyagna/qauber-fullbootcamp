@@ -1,4 +1,4 @@
-package Pages;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +13,9 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
 public class EditProfilePage extends BasePage {
-    public EditProfilePage(WebDriver driver){super(driver);}
+    public EditProfilePage(WebDriver driver) {
+        super(driver);
+    }
 
     //Profile Picture
     @FindBy(xpath = "//button[@class='upload btn btn-labeled btn-primary btn-sm']")
@@ -26,10 +28,11 @@ public class EditProfilePage extends BasePage {
     private WebElement assertionUploadPicture;//if is not uploaded any picture than tha xpath will not change
     //General info
     @FindBy(xpath = "//input[@name='name']")
-    private  WebElement nameField;
+    private WebElement nameField;
     @FindBy(xpath = "//button[@ng-click='$ctrl.submitGeneralForm()']")
     private WebElement updateNameBtn;
-    @FindBy(xpath = "//span[@class ='text-danger' and text()='This field is required']")// "//span[@class='text-danger']"
+    @FindBy(xpath = "//span[@class ='text-danger' and text()='This field is required']")
+// "//span[@class='text-danger']"
     private WebElement errorRequired;
 
     //changePassword form
@@ -46,8 +49,9 @@ public class EditProfilePage extends BasePage {
     @FindBy(xpath = "//span[contains(.,'Password does Not match')]")
     private WebElement errorNotMatch;
     @FindBy(xpath = "//span[contains(.,'Input should be 6-20 length')]")
-    private  WebElement errorInput6Characters;
-    @FindBy(xpath = "/html/body/div[2]/section/div/div/div[2]/form[2]/div/div[2]/fieldset[1]/div/div/span[2]")// "//span[contains(.,'Your current password is different')]"
+    private WebElement errorInput6Characters;
+    @FindBy(xpath = "/html/body/div[2]/section/div/div/div[2]/form[2]/div/div[2]/fieldset[1]/div/div/span[2]")
+// "//span[contains(.,'Your current password is different')]"
     private WebElement errorCurrentPassDifferent;
 
     @FindBy(xpath = "//input[@type='password']")
@@ -61,13 +65,15 @@ public class EditProfilePage extends BasePage {
 
 
     //methods for upload picture
-    public void clickSelectPictureBtn(){
+    public void clickSelectPictureBtn() {
         wait.until(ExpectedConditions.elementToBeClickable(selectPictureBtn)).click();
     }
-    public void clickDeletePictureBtn(){
-        executor.executeScript("arguments[0].scrollIntoView(true);",deletePictureBtn);
+
+    public void clickDeletePictureBtn() {
+        executor.executeScript("arguments[0].scrollIntoView(true);", deletePictureBtn);
         deletePictureBtn.click();
     }
+
     //i have to learn how to upload a picture and add more methods
     public void uploadImage() throws AWTException {
 
@@ -97,7 +103,8 @@ public class EditProfilePage extends BasePage {
         nameField.clear();
         nameField.sendKeys(strName);
     }
-    public void clickUpdateNameBtn(){
+
+    public void clickUpdateNameBtn() {
         wait.until(ExpectedConditions.elementToBeClickable(updateNameBtn)).click();
     }
 
@@ -107,39 +114,54 @@ public class EditProfilePage extends BasePage {
         currentPassword.clear();
         currentPassword.sendKeys(strCurrentPass);
     }
+
     public void setNewPassword(String strNewPass) {
         wait.until(ExpectedConditions.visibilityOf(newPassword));
         newPassword.clear();
         newPassword.sendKeys(strNewPass);
     }
+
     public void setConfirmNewPassword(String strConfirmPass) {
         wait.until(ExpectedConditions.visibilityOf(confirmPassword));
         confirmPassword.clear();
         confirmPassword.sendKeys(strConfirmPass);
     }
-    public void clickChangePassBtn(){
+
+    public void clickChangePassBtn() {
         wait.until(ExpectedConditions.elementToBeClickable(changePasswordBtn));
-        executor.executeScript("arguments[0].click();",changePasswordBtn);
+        executor.executeScript("arguments[0].click();", changePasswordBtn);
     }
 
     //get error messages
-    public String getErrorRequired(){ return errorRequired.getText(); }
-    public WebElement getVisiblErrorRequiredElement(){
+    public String getErrorRequired() {
+        return errorRequired.getText();
+    }
+
+    public WebElement getVisiblErrorRequiredElement() {
         return wait.until(ExpectedConditions.visibilityOf(errorRequired));
     }
 
-    public String getErrorNotMatch(){ return errorNotMatch.getText(); }
-    public WebElement getVisiblErrorNotMatchElement(){
+    public String getErrorNotMatch() {
+        return errorNotMatch.getText();
+    }
+
+    public WebElement getVisiblErrorNotMatchElement() {
         return wait.until(ExpectedConditions.visibilityOf(errorNotMatch));
     }
 
-    public String getErrorWrongInput(){ return errorInput6Characters.getText();}
-    public WebElement getVisiblErrorInput6CharElement(){
+    public String getErrorWrongInput() {
+        return errorInput6Characters.getText();
+    }
+
+    public WebElement getVisiblErrorInput6CharElement() {
         return wait.until(ExpectedConditions.visibilityOf(errorInput6Characters));
     }
 
-    public String getErrorCurrentPassWrong(){ return errorCurrentPassDifferent.getText(); }
-    public WebElement getVisiblErrorCurrentPassWrongElement(){
+    public String getErrorCurrentPassWrong() {
+        return errorCurrentPassDifferent.getText();
+    }
+
+    public WebElement getVisiblErrorCurrentPassWrongElement() {
         return wait.until(ExpectedConditions.visibilityOf(errorCurrentPassDifferent));
     }
 
@@ -147,7 +169,7 @@ public class EditProfilePage extends BasePage {
         return wait.until(ExpectedConditions.visibilityOf(deleteBtnDisable));
     }
 
-    public String getSuccessMessage(){
+    public String getSuccessMessage() {
         return successMessage.getText();
     }
 
@@ -155,14 +177,16 @@ public class EditProfilePage extends BasePage {
         //avatar when picture is not uploaded
         return assertionUploadPicture;
     }
-    public List<WebElement> getAllPasswordEncryptedFields(){
+
+    public List<WebElement> getAllPasswordEncryptedFields() {
         return passwordEncrypted;
     }
-    public int getNrOfPasswordFields(){
+
+    public int getNrOfPasswordFields() {
         Iterator<WebElement> it = passwordEncrypted.iterator();
         int count = 0;
-        while (it.hasNext()){
-            count=count+1;
+        while (it.hasNext()) {
+            count = count + 1;
             it.next();
         }
         return count;
