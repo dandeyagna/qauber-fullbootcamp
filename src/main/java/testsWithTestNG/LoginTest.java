@@ -11,7 +11,7 @@ public class LoginTest extends BaseTest {
     private LoginPage loginPage;
 
 
-    @Test(dataProviderClass = DataProviders.class, dataProvider = "usernamePassword", priority = 0)
+    @Test(dataProviderClass = DataProviders.class, dataProvider = "usernamePassword", priority = 0,groups = {"regression"})
     public void testLogin(String username, String password) throws InterruptedException {
 
         loginPage = new LoginPage(driver);

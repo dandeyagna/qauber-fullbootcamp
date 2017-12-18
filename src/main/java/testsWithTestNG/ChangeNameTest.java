@@ -18,7 +18,7 @@ public class ChangeNameTest extends LoginTest {
     public void beforeMethod() {
     }
 
-    @Test(dependsOnMethods = "testLogin", dataProviderClass = DataProviders.class, dataProvider = "ChangeName")
+    @Test(dependsOnMethods = "testLogin", dataProviderClass = DataProviders.class, dataProvider = "ChangeName", groups = {"regression"})
     public void testChangeName(String name) {
 
         headerPage = new HeaderPage(driver);

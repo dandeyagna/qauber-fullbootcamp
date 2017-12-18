@@ -24,7 +24,7 @@ public class BaseTest {
     private LoginPage loginPage;
     private String url;
 
-    @BeforeClass
+    @BeforeClass(groups = {"regression"})
     public void baseBeforeClass() {
         driver = new FirefoxDriver();
         url = "http://fits.qauber.com/#/page/login";
@@ -34,7 +34,7 @@ public class BaseTest {
         wait = new WebDriverWait(driver, 10);
     }
 
-    @Test(priority = 0, enabled = true)
+    @Test(priority = 0, enabled = true,groups = {"regression"})
     public void assertLogo() {
 
         loginPage = new LoginPage(driver);
@@ -53,7 +53,7 @@ public class BaseTest {
         }
     }*/
 
-    @AfterClass
+    @AfterClass(groups = {"regression"})
     public void baseAfterClass() {
 
         driver.quit();

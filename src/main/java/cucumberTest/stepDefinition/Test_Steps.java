@@ -89,9 +89,9 @@ public class Test_Steps {
 
     @When("^Click on editProfile button$")
     public void click_on_editProfile_button() {
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(.,'Edit Profile')]"))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(.,'Edit Profile')]"))).click();
 
-        driver.findElement(By.xpath("//button[contains(.,'Edit Profile')]")).click();
+        //driver.findElement(By.xpath("//button[contains(.,'Edit Profile')]")).click();
     }
 
     @When("^Type name into Name textInput field$")
@@ -102,8 +102,9 @@ public class Test_Steps {
     }
 
     @When("^Click update Button$")
-    public void click_on_update_button() {
+    public void click_on_update_button() throws InterruptedException {
         driver.findElement(By.xpath("//button[@ng-click='$ctrl.submitGeneralForm()']")).click();
+        Thread.sleep(2000);
     }
 
     @Then("^Successful message is displayed$")
