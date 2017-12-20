@@ -1,33 +1,36 @@
 package Pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
+
 
 public class AddingEntity {
-    WebDriver driver;
     public AddingEntity(WebDriver driver){
-        this.driver=driver;
-       // PageFactory.initElements(driver, this);
+       PageFactory.initElements(driver, this);
     }
-    public void creatingEntity(){
-        driver.findElement(By.xpath("//span[text()='Entities']"));
-        driver.findElement(By.xpath("//button[text()='Add Entity']"));
-    }
+
+    @FindBy(xpath = "//label[@class='ng-binding']")
+    private List<WebElement> selectEntity1;
    // @FindBy(xpath = "//label[text()='cubo@nada.ltd']/span")
-   // WebElement selectingEntity;
+    //WebElement selectingEntity;
+    @FindBy(xpath = "//div[@ng-show='wizard.active(1)']/ul/li/a")
+    WebElement nextButton;
 
-    public WebElement selectingEntity() {
 
-        return driver.findElement(By.xpath("//label[text()='cubo@nada.ltd']/span"));
-    }
+    public void selectingEntity() throws InterruptedException {
+        Random rand = new Random();
+        int count =selectEntity1.size();
+        int value=rand.nextInt(count);
+        Thread.sleep(1000);
+        selectEntity1.get(value).click();
+   }
     public void clickNextButton(){
-        WebElement nextButton = driver.findElement(By.xpath("//div[@ng-show='wizard.active(1)']/ul/li/a"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", nextButton);
         nextButton.click();
     }
 }

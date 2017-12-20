@@ -1,28 +1,37 @@
 package Pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class CreatingSubjectInformation {
     WebDriver dr;
-public CreatingSubjectInformation(WebDriver dr){
-    this.dr=dr;
+public CreatingSubjectInformation(WebDriver driver){
+    PageFactory.initElements(driver, this);
 }
-public WebElement caseID(){
+@FindBy(xpath = "//input[@name='caseNumber']")
+WebElement caseNumber;
+@FindBy(xpath = "//input[@name='lastName']")
+WebElement lastName;
+@FindBy(xpath = "//input[@name='firstName']")
+WebElement firstName;
+@FindBy(xpath = "//div[@ng-show='wizard.active(2)']/ul/li[2]/a")
+WebElement nextButton;
 
-    return dr.findElement(By.xpath("//input[@name='caseNumber']"));
+public void caseID(String caseId){
+caseNumber.sendKeys(caseId);
 }
-public WebElement lastName(){
-
-    return dr.findElement(By.xpath("//input[@name='lastName']"));
+public void lastName(String reportLastname){
+    lastName.sendKeys(reportLastname);
 }
-public WebElement FirstName(){
-
-    return dr.findElement(By.xpath("//input[@name='firstName']"));
+public void FirstName(String reportFisrstName){
+    firstName.sendKeys(reportFisrstName);
 }
-public WebElement radioButton(){
+public void clickNextButton(){
+        nextButton.click();
+}
+/*public WebElement radioButton(){
     return dr.findElement(By.xpath("//div[@class='radio c-radio']/label/span"));
 }
 public WebElement SelectingDriver(){
@@ -36,11 +45,7 @@ public WebElement SelectingDriver(){
     public WebElement SelectingPedestrian(){
 
         return dr.findElement(By.xpath("//label[text()='Pedestrian']/span"));
-    }
-public void clickNextButton(){
-    WebElement nextButton = dr.findElement(By.xpath("//div[@ng-show='wizard.active(2)']/ul/li[2]/a"));
-    ((JavascriptExecutor) dr).executeScript("arguments[0].scrollIntoView(true);", nextButton);
-    nextButton.click();
-}
+    }*/
+
 }
 

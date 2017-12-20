@@ -1,19 +1,17 @@
 package Pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class CreatingIDInformation {
-    WebDriver dr;
-    public CreatingIDInformation(WebDriver dr){
-        this.dr=dr;
+    public CreatingIDInformation(WebDriver driver){
+        PageFactory.initElements(driver, this);
     }
-    public void clickNextButton() throws InterruptedException {
-        Thread.sleep(1000);
-        WebElement nextButton = dr.findElement(By.xpath("//div[@ng-show='wizard.active(4)']/ul/li[2]/a"));
-        ((JavascriptExecutor) dr).executeScript("arguments[0].scrollIntoView(true);", nextButton);
+    @FindBy(xpath = "//div[@ng-show='wizard.active(4)']/ul/li[2]/a")
+    WebElement nextButton;
+    public void clickNextButton(){
         nextButton.click();
     }
 }

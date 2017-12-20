@@ -3,66 +3,95 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class ViewReports {
     WebDriver driver;
     public ViewReports(WebDriver driver){
-        this.driver=driver;
+        PageFactory.initElements(driver, this);
     }
-    public WebElement tattoosIsChecked() {
 
-        return driver.findElement(By.xpath("//span[text()='Tattoos']/../span[1]"));
+    @FindBy(xpath = "//span[text()='Tattoos']/../span[1]")
+    WebElement tattoosSelected;
+    @FindBy(xpath = "//span[text()='Scars']/../span[1]")
+    WebElement scarsSelected;
+    @FindBy(xpath = "//span[text()='Needle Marks']/../span[1]")
+    WebElement needleMarksSelected;
+    @FindBy(xpath = "//span[text()='Tracks']/../span[1]")
+    WebElement tracksSelected;
+    @FindBy(xpath = "//span[text()='Glasses']/../span[1]")
+    WebElement glassesSelected;
+    @FindBy(xpath = "//span[text()='Mustache']/../span[1]")
+    WebElement mustacheSelected;
+    @FindBy(xpath = "//span[text()='Beard']/../span[1]")
+    WebElement beardSelected;
+    @FindBy(xpath = "//span[text()='Tattoos']/../div")
+    WebElement tattoosVerified;
+    @FindBy(xpath = "//span[text()='Scars']/../div")
+    WebElement scarsVerified;
+    @FindBy(xpath = "//span[text()='Needle Marks']/../div")
+    WebElement needleMarksVerified;
+    @FindBy(xpath = "//span[text()='Tracks']/../div")
+    WebElement tracksVerified;
+    @FindBy(xpath = "//span[text()='Glasses']/../div")
+    WebElement glassesVerified;
+    @FindBy(xpath = "//span[text()='Mustache']/../div")
+    WebElement mustacheVerified;
+    @FindBy(xpath = "//span[text()='Beard']/../div")
+    WebElement beardVerified;
+    @FindBy(xpath = "//span[text()='Case ID']/../div")
+    WebElement viewPageCaseId;
+    public WebElement tattoosIsChecked() {
+        return tattoosSelected;
     }
     public WebElement scarsIsChecked() {
-
-        return driver.findElement(By.xpath("//span[text()='Scars']/../span[1]"));
+        return scarsSelected;
     }
     public WebElement needleMarksIsChecked() {
-
-        return driver.findElement(By.xpath("//span[text()='Needle Marks']/../span[1]"));
+        return needleMarksSelected;
     }
     public WebElement tracksIsChecked() {
-
-        return driver.findElement(By.xpath("//span[text()='Tracks']/../span[1]"));
+        return tracksSelected;
     }
     public WebElement glassesIsChecked() {
-
-        return driver.findElement(By.xpath("//span[text()='Glasses']/../span[1]"));
+        return glassesSelected;
     }
     public WebElement mustacheIsChecked() {
-
-        return driver.findElement(By.xpath("//span[text()='Mustache']/../span[1]"));
+        return mustacheSelected;
     }
     public WebElement beardIsChecked() {
-
-        return driver.findElement(By.xpath("//span[text()='Beard']/../span[1]"));
+        return beardSelected;
     }
-    public WebElement tattoosVerified(){
-        return driver.findElement(By.xpath("//span[text()='Tattoos']/../div"));
+    public String tattoosVerified(){
+        return tattoosVerified.getText();
     }
-    public WebElement scarsVerified() {
+    public String scarsVerified() {
 
-        return driver.findElement(By.xpath("//span[text()='Scars']/../div"));
+        return scarsVerified.getText();
     }
-    public WebElement needleMarksVerified() {
+    public String needleMarksVerified() {
 
-        return driver.findElement(By.xpath("//span[text()='Needle Marks']/../div"));
+        return needleMarksVerified.getText();
     }
-    public WebElement tracksVerified() {
+    public String tracksVerified() {
 
-        return driver.findElement(By.xpath("//span[text()='Tracks']/../div"));
+        return tracksVerified.getText();
     }
-    public WebElement glassesVerified() {
+    public String glassesVerified() {
 
-        return driver.findElement(By.xpath("//span[text()='Glasses']/../div"));
+        return glassesVerified.getText();
     }
-    public WebElement mustacheVerified() {
+    public String mustacheVerified() {
 
-        return driver.findElement(By.xpath("//span[text()='Mustache']/../div"));
+        return mustacheVerified.getText();
     }
-    public WebElement beardVerified() {
+    public String beardVerified() {
 
-        return driver.findElement(By.xpath("//span[text()='Beard']/../div"));
+        return beardVerified.getText();
+    }
+    public String viewPageCaseId(){
+        return viewPageCaseId.getText();
     }
 
 }

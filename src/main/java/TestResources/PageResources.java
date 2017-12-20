@@ -2,7 +2,6 @@ package TestResources;
 
 import Pages.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class PageResources {
 WebDriver dr;
@@ -20,6 +19,23 @@ WebDriver dr;
     private AddPhotos addPhotos;
     private IdentifiersPage identifiersPage;
     private ViewReports viewReports;
+    private AddReportsPage addReportsPage;
+    private ReportsPage reportsPage;
+    private LogOutPage logOutPage;
+
+
+    public LogOutPage getLogOutPage() {
+        return logOutPage;
+    }
+
+
+    public ReportsPage getReportsPage() {
+        return reportsPage;
+    }
+
+    public AddReportsPage getAddReportsPage() {
+        return addReportsPage;
+    }
 
     public ViewReports getViewReports() {
         return viewReports;
@@ -77,6 +93,9 @@ WebDriver dr;
     createPublishReport = new CreatePublishReport(dr);
     identifiersPage =new IdentifiersPage(dr);
     viewReports=new ViewReports(dr);
+    addReportsPage=new AddReportsPage(dr);
+    reportsPage=new ReportsPage(dr);
+    logOutPage = new LogOutPage(dr);
 
 }
 
