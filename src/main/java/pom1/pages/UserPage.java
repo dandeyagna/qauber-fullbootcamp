@@ -27,7 +27,7 @@ public class UserPage extends HomePage {
 	@FindBy(xpath="//button[@class='btn btn-primary mr']")
 	WebElement sendInviteButton;
 	@FindBy(xpath="//table[@class='table table-bordered']//a")
-	WebElement emailIDLink;
+	List<WebElement> emailIDLink;
 	@FindBy(xpath="//a[text()='›']")
 	WebElement pagination;
 	@FindBy(xpath="//button[text()='Cancel']")
@@ -97,34 +97,36 @@ public class UserPage extends HomePage {
 	@Then("^Username \"([^\"]*)\" displayed in User list$")
 	public void verifyEmailIdPresent(String emailID){
 	
-		
 		int count = 1;
 
-		WebElement pagination = driver.findElement(By.xpath("//a[text()='›']"));
-		
+		//WebElement pagination = driver.findElement(By.xpath("//a[text()='›']"));
 
 		while (pagination.isDisplayed()) {
 
 			boolean exist = false;
 
-			List<WebElement> allElement = driver.findElements(By.xpath("//table[@class='table table-bordered']//a"));
+			List<WebElement> allElement = emailIDLink;
 			for (WebElement e : allElement) {
-				System.out.println("It is running..");
+
 				if (e.getText().equals(emailID)) {
 					exist = true;
 					System.out.println(emailID + " Email id is present in user list");
 					System.out.println(e.getText());
 
 				}
+
+				// Assert.assertEquals(exist, true, "Expected email id is not
+				// present");
 			}
 			if (exist == true) {
 				break;
 
 			}
 			count++;
+		
 			WebElement page = driver.findElement(By.xpath("//a[text()='" + count + "']"));
 			page.click();
-			
+
 			driver.quit();
 		}
 		
