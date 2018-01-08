@@ -31,6 +31,6 @@ And User clicks on Agreepayment
 Then Message dispayed Payment Successfull.
 Examples:
 |username|password|entityname|phonenumber|emailID|country|address|city|state|zipcode|regUser|admUser|paypalID|paypalPassword|
-|reshmaaher@gmail.com|Iltarget3|abcdy|4089998777|dds@ff.com|United States|assfff|Santa Clara|California|9776|rere@d.com|dsdd@dff.com|reshmaaher@gmail.com|Ilhhh|
+|reshmaaher@gmail.com|Iltaddd|abcdy|4089998777|dds@ff.com|United States|assfff|Santa Clara|California|9776|rere@d.com|dsdd@dff.com|reshmaaher@gmail.com|Ilhhh|
 
 
